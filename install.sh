@@ -8,6 +8,12 @@ link_dir()  { if [ ! -d $2 ]; then ln -s $PWD/$1 $2; ldone; else lskip; fi; }
 llinking zshrc
 link_file zshrc $HOME/.zshrc
 
+llinking "P10K theme"
+link_file p10k.normal.zsh $HOME/.p10k.normal.zsh
+
+llinking "P10K theme for TTY"
+link_file p10k.tty.zsh $HOME/.p10k.tty.zsh
+
 llinking "Doom Emacs config"
 if [ ! -d $HOME/.doom.d ]
 then
