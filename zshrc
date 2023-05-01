@@ -28,8 +28,9 @@ source $ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/doc/pkgfile/command-not-found.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
-# Dirs stack
+# Dirs
 setopt AUTO_PUSHD
+setopt auto_cd
 
 # Config
 CONFIG_DIRECTORY=$(dirname $(readlink -f $HOME/.zshrc))
