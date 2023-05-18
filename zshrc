@@ -1,5 +1,7 @@
 autoload -U compinit
 
+path+=("$HOME/.local/bin")
+
 compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*' rehash true
