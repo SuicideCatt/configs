@@ -53,7 +53,7 @@ alias zsh_cfg_edit="emacs $ZSH_CONFIG"
 alias zsh_cfg_edit_cli="zsh_cfg_edit -nw"
 
 # Other
-alias prt_get_editorconfig="cp $CONFIG_DIRECTORY/editorconfig .editorconfig";
+alias prt_get_editorconfig="cp $CONFIG_DIRECTORY/editorconfig .editorconfig"
 
 # Alias's
 alias l='ls -lah'

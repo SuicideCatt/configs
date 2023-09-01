@@ -7,6 +7,7 @@ For install on Arch based systems:
 $ git clone https://github.com/SuicideCatt/configs ~/.config/sct_config
 $ cd ~/.config/sct_config
 $ ./install.sh
+$ yay -S doxymacs-git
 $ chsh /usr/bin/zsh
 ```
 For upgrade:
