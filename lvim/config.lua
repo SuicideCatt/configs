@@ -66,6 +66,6 @@ if not cfg.glsl_analyzer then
 			single_file_support = true
  		}
 	}
-
-	lsp.glsl_analyzer.setup{}
 end
+
+lsp.glsl_analyzer.setup{}
