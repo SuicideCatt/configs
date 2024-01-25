@@ -2,13 +2,12 @@
 
 For install on Arch based systems:
 ```sh
-# pacman -Sy zsh-completions zsh-theme-powerlevel10k zsh-autosuggestions zsh-syntax-highlighting pkgfile git zsh emacs
-# pkgfile -u
-$ git clone https://github.com/SuicideCatt/configs ~/.config/sct_config
-$ cd ~/.config/sct_config
-$ ./install.sh
-$ yay -S doxymacs-git
-$ chsh /usr/bin/zsh
+sudo pacman -Sy zsh-completions zsh-theme-powerlevel10k zsh-autosuggestions zsh-syntax-highlighting pkgfile git zsh nvim python python-pynvim
+sudo pkgfile -u
+git clone https://github.com/SuicideCatt/configs ~/.config/sct_config
+cd ~/.config/sct_config
+./install.sh
+chsh /usr/bin/zsh
 ```
 For upgrade:
 ```sh

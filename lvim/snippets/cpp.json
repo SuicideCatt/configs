@@ -1,0 +1,12 @@
+{
+	"pragma_once": {
+		"prefix": "once",
+		"body": ["#pragma once"],
+		"desctiprion": "#pragma once"
+	},
+	"beginend": {
+		"prefix": "beginend",
+		"body": ["${1:container}.begin(), ${1:container}.end()$0"],
+		"desctiprion": "get container begin and end"
+	}
+}

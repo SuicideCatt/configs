@@ -39,18 +39,17 @@ CONFIG_DIRECTORY=$(dirname $(readlink -f $HOME/.zshrc))
 
 sct_cfg_upgrade()
 {
-    OLD_DIR=$(pwd)
-    cd $CONFIG_DIRECTORY
-    git pull
-    ./install.sh
-    cd $OLD_DIR
+	OLD_DIR=$(pwd)
+	cd $CONFIG_DIRECTORY
+	git pull
+	./install.sh
+	cd $OLD_DIR
 }
 
 # ZSH
 ZSH_CONFIG=$CONFIG_DIRECTORY/zshrc
 alias zsh_cfg_reload=". $ZSH_CONFIG"
-alias zsh_cfg_edit="emacs $ZSH_CONFIG"
-alias zsh_cfg_edit_cli="zsh_cfg_edit -nw"
+alias zsh_cfg_edit="lvim $ZSH_CONFIG"
 
 # Other
 alias prt_get_editorconfig="cp $CONFIG_DIRECTORY/editorconfig .editorconfig"
