@@ -100,5 +100,21 @@
             (tab-bar-tabs-set (persp-parameter 'tab-bar-tabs))
             (tab-bar--update-tab-bar-lines t)))
 
+(with-eval-after-load 'eglot
+    (add-to-list 'eglot-server-programs
+                 '(glsl-mode . ("glslls" "--stdin"))
+    )
+)
+
+(add-hook 'glsl-mode-hook 'eglot-ensure)
+
 (map! :n "gt" #'next-buffer)
 (map! :n "gT" #'previous-buffer)
+
+(set-face-attribute 'default nil :background  "black")
+
+;; (defun on-after-init ()
+;;   (unless (display-graphic-p (selected-frame))
+;;     (set-face-background 'default "unspecified-bg" (selected-frame))))
+
+;; (add-hook 'window-setup-hook 'on-after-init)(set-face-background 'default "unspecified-bg" frame)

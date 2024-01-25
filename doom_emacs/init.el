@@ -14,14 +14,18 @@
 ;;      Alternatively, press 'gd' (or 'C-c c d') on a module to browse its
 ;;      directory (for easy access to its source code).
 
+;; (setq lsp-log-io t)
 
-;;(with-eval-after-load 'lsp-mode
-;;  (add-to-list 'lsp-language-id-configuration
-;;               '(glsl-mode . "glsl"))
-;;  (lsp-register-client
-;;   (make-lsp-client :new-connection (lsp-stdio-connection '("glslls" "--stdin"))
-;;                    :activation-fn (lsp-activate-on "glsl")
-;;                    :server-id 'glsl)))
+;; (with-eval-after-load 'lsp-mode
+;;   (add-to-list 'lsp-language-id-configuration '(glsl-mode . "glslls"))
+
+;;   (lsp-register-client
+;;    (make-lsp-client :new-connection (lsp-stdio-connection '("glslls"))
+;;                     :activation-fn (lsp-activate-on "glslls" "--stdin")
+;;                     :major-modes '(glsl-mode)
+;;                     :server-id 'glslls
+;;    ))
+;; )
 
 (doom! :input
        ;;bidi              ; (tfel ot) thgir etirw uoy gnipleh
@@ -41,7 +45,7 @@
        doom              ; what makes DOOM look the way it does
        doom-dashboard    ; a nifty splash screen for Emacs
        doom-quit         ; DOOM quit-message prompts when you quit Emacs
-       ;;(emoji +unicode)  ; 🙂
+       (emoji +unicode)  ; 🙂
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        ;;hydra
        indent-guides     ; highlighted indent columns
@@ -203,5 +207,8 @@
        ;;literate
        (default +bindings +smartparens))
 
+(package-initialize)
+
 (require 'doxymacs)
 (add-hook 'c-mode-common-hook 'doxymacs-mode)
+
