@@ -1,4 +1,4 @@
-# My configurations for zsh and Doom Emacs
+# My configurations for zsh and LunarVim
 
 For install on Arch based systems:
 ```sh
