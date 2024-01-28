@@ -8,7 +8,7 @@ sudo pkgfile -u
 git clone https://github.com/SuicideCatt/configs ~/.config/sct_config
 cd ~/.config/sct_config
 ./install.sh
-chsh /usr/bin/zsh
+chsh -s /usr/bin/zsh
 ```
 For upgrade:
 ```sh
