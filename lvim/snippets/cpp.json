@@ -8,5 +8,19 @@
 		"prefix": "beginend",
 		"body": ["${1:container}.begin(), ${1:container}.end()$0"],
 		"desctiprion": "get container begin and end"
+	},
+	"copy": {
+		"prefix": "copy_s",
+		"body": [
+			"${1:Name}(const ${1:Name}&) = ${2:default};",
+			"${1:Name}& operator=(const ${1:Name}&) = ${2:default};"
+		]
+	},
+	"move": {
+		"prefix": "move_s",
+		"body": [
+			"${1:Name}(${1:Name}&&) = ${2:default};",
+			"${1:Name}& operator=(${1:Name}&&) = ${2:default};"
+		]
 	}
 }
