@@ -45,12 +45,22 @@ end
 
 add_cmake_to_menu()
 
--- Statuc line
-local line = lvim.builtin.lualine.sections
+-- Emacs like status line
+lvim.builtin.lualine.options.globalstatus = false
+
+-- Active statuc line
+local active_line = lvim.builtin.lualine.sections
 -- local lunar = require("lvim.core.lualine.components")
-line.lualine_a = {"mode"}
-line.lualine_b = {"branch", "diff"}
-line.lualine_c = {"filename"}
+active_line.lualine_a = {"mode"}
+active_line.lualine_b = {"branch", "diff"}
+active_line.lualine_c = {"filename"}
+
+-- Inactive statuc line
+local inactive_line = lvim.builtin.lualine.inactive_sections
+-- local lunar = require("lvim.core.lualine.components")
+inactive_line.lualine_a = {"mode"}
+inactive_line.lualine_b = {"branch", "diff"}
+inactive_line.lualine_c = {"filename"}
 
 -- lsp
 local lsp = require("lspconfig")
