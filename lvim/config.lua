@@ -58,7 +58,7 @@ active_line.lualine_c = {"filename"}
 -- Inactive statuc line
 local inactive_line = lvim.builtin.lualine.inactive_sections
 -- local lunar = require("lvim.core.lualine.components")
-inactive_line.lualine_a = {"mode"}
+inactive_line.lualine_a = {}
 inactive_line.lualine_b = {"branch", "diff"}
 inactive_line.lualine_c = {"filename"}
 
