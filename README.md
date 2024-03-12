@@ -12,5 +12,5 @@ chsh -s /usr/bin/zsh
 ```
 For upgrade:
 ```sh
-$ sct_cfg_upgrade
+$ sct_cfg_update
 ```

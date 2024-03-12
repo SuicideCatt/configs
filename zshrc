@@ -37,14 +37,17 @@ setopt auto_cd
 # Config
 CONFIG_DIRECTORY=$(dirname $(readlink -f $HOME/.zshrc))
 
-sct_cfg_upgrade()
+sct_launch_in_cfg_dir()
 {
 	OLD_DIR=$(pwd)
 	cd $CONFIG_DIRECTORY
-	git pull
-	./install.sh
+	$1
 	cd $OLD_DIR
 }
+
+alias sct_cfg_update="sct_launch_in_cfg_dir \"./update.sh\""
+alias sct_lvim_in_cfg_dir="sct_launch_in_cfg_dir lvim"
+alias sct_zsh_in_cfg_dir="sct_launch_in_cfg_dir zsh"
 
 # ZSH
 ZSH_CONFIG=$CONFIG_DIRECTORY/zshrc
