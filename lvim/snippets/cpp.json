@@ -22,5 +22,17 @@
 			"${1:Name}(${1:Name}&&) = ${2:default};",
 			"${1:Name}& operator=(${1:Name}&&) = ${2:default};"
 		]
+	},
+	"class":{
+		"prefix": "class_virt_i",
+		"body": [
+			"class ${1:Name}", "{", "public:",
+			"\t${1:Name}(const ${1:Name}&) = ${2:default};",
+			"\t${1:Name}& operator=(const ${1:Name}&) = ${2:default};\n",
+			"\t${1:Name}(${1:Name}&&) = ${3:default};",
+			"\t${1:Name}& operator=(${1:Name}&&) = ${3:default};\n",
+			"\tvirtual ~${1:Name}() = default;\n",
+			"protected:", "\t${1:Name}() = default;", "};"
+		]
 	}
 }
