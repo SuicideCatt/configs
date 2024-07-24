@@ -20,6 +20,12 @@ link_file p10k.normal.zsh "$HOME/.p10k.normal.zsh"
 llinking "P10K theme for TTY"
 link_file p10k.tty.zsh "$HOME/.p10k.tty.zsh"
 
+llinking "Hyprland"
+link_dir hypr "$HOME/.config/hypr"
+
+llinking "Waybar"
+link_dir waybar "$HOME/.config/waybar"
+
 llinking "LunarVim config"
 if [ ! -d "$HOME/.config/lvim" ]
 then
