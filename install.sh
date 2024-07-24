@@ -14,11 +14,13 @@ link_dir()
 llinking zshrc
 link_file zshrc "$HOME/.zshrc"
 
-llinking "P10K theme"
-link_file p10k.normal.zsh "$HOME/.p10k.normal.zsh"
-
-llinking "P10K theme for TTY"
-link_file p10k.tty.zsh "$HOME/.p10k.tty.zsh"
+THEME_ENGINE="minimal.zsh"
+if [ ! -f "./minimal.zsh" ]
+then
+	linstaling "subnixr/minimal"
+	URL="https://raw.githubusercontent.com/subnixr/minimal/master/minimal.zsh"
+	curl "$URL" -o "$THEME_ENGINE"
+fi
 
 llinking "Hyprland"
 link_dir hypr "$HOME/.config/hypr"
@@ -41,7 +43,7 @@ then
 	fi
 
 	export FONTS="$HOME/.local/share/fonts"
-	if [ ! -d "$FONTS/Hack" ];
+	if [ ! -d "$FONTS/Hack" ]
 	then
 		llinking "Hack Nerd Font"
 		if [ ! -d "$FONTS" ];

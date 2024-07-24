@@ -14,15 +14,6 @@ SAVEHIST=25000
 setopt sharehistory
 setopt histignoredups
 
-# Theme
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-if [ "${$(tty):0:8}" = "/dev/tty" ]
-then
- 	source ~/.p10k.tty.zsh;
-else
- 	source ~/.p10k.normal.zsh;
-fi
-
 # Plugins
 ZSH_PLUGINS=/usr/share/zsh/plugins
 source $ZSH_PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -36,6 +27,15 @@ setopt auto_cd
 
 # Config
 CONFIG_DIRECTORY=$(dirname $(readlink -f $HOME/.zshrc))
+
+# Theme
+source $CONFIG_DIRECTORY/minimal.zsh
+if [ "${$(tty):0:8}" = "/dev/tty" ]
+then
+	source $CONFIG_DIRECTORY/theme.tty.zsh;
+ else
+	source $CONFIG_DIRECTORY/theme.normal.zsh;
+fi
 
 sct_launch_in_cfg_dir()
 {
