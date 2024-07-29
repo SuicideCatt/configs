@@ -57,6 +57,96 @@ alias zsh_cfg_edit="lvim $ZSH_CONFIG"
 # Other
 alias prt_get_editorconfig="cp $CONFIG_DIRECTORY/editorconfig .editorconfig"
 
+prt_mk_build()
+{
+	PRT="$(pwd)/build"
+	TMP="/tmp/builds/${PWD##*/}"
+
+	source "$CONFIG_DIRECTORY/log.sh"
+
+	lstatus "Creating $TMP"
+	if [ ! -d "/tmp/builds/${PWD##*/}" ]
+	then
+		mkdir -p "/tmp/builds/${PWD##*/}"
+		ldone
+	else
+		rm -rf "$TMP/*"
+		printf "Already created, cache deleted\n"
+	fi
+
+	llinking "$PRT"
+	if [ ! -d "$(pwd)/build" ]
+	then
+		ln -s "$TMP" "$PRT"
+		ldone
+	else
+		lskip
+	fi
+
+	zmodload zsh/zutil
+	zparseopts -D -F -E - \
+		cmake:=io_cmake
+
+	if [ ! $#io_cmake = 0 ]
+	then
+		case "${io_cmake[-1]##*=}" in
+			d)
+				cmake -S "$(pwd)" -B "$PRT" -DCMAKE_BUILD_TYPE=Debug \
+					-DCMAKE_EXPORT_COMPILE_COMMANDS=YES -G "Unix Makefiles"
+			;;
+			r)
+				cmake -S "$(pwd)" -B "$PRT" -DCMAKE_BUILD_TYPE=Release \
+					-G "Unix Makefiles"
+			;;
+			*)
+				echo "d or r"
+				return 1
+			;;
+		esac
+	fi
+}
+
+prt_rm_build()
+{
+	PRT="$(pwd)/build"
+	TMP="/tmp/builds/${PWD##*/}"
+
+	if [ -d "$(pwd)/build" ]
+	then
+		rm -rf "$PRT"
+	fi
+
+	if [ -d "/tmp/builds/${PWD##*/}" ]
+	then
+		rm -rf "$TMP"
+	fi
+}
+
+prt_build()
+{
+	PRT="$(pwd)/build"
+	TMP="/tmp/builds/${PWD##*/}"
+
+	zmodload zsh/zutil
+	zparseopts -D -F -E - \
+		cmake=io_cmake \
+		no_mt=io_no_mt
+
+	if [ ! $#io_no_mt = 0 ]
+	then
+		THREADS=1
+	else
+		THREADS="$(nproc)"
+	fi
+
+	if [ ! $#io_cmake = 0 ]
+	then
+		cmake --build "$PRT" -- "-j$THREADS"
+	else
+		./build.sh -b "$PRT" -j "$THREADS"
+	fi
+}
+
 # Alias's
 alias l='ls -lah'
 alias la='ls -lAh'
