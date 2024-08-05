@@ -1,0 +1,121 @@
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = false
+vim.opt.smartindent = true
+
+vim.opt.cursorline = true
+
+vim.opt.number = true
+
+vim.opt.textwidth = 80
+vim.opt.colorcolumn = "+1"
+
+vim.opt.clipboard = "unnamedplus"
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
+
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
+	checker = { enabled = false },
+	{"catppuccin/nvim", name = "catppuccin", priority = 1000},
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = {'nvim-tree/nvim-web-devicons'}
+	},
+	{"nvim-tree/nvim-tree.lua"},
+	{"tree-sitter/tree-sitter"},
+	{"nvim-treesitter/nvim-treesitter"},
+	{"neovim/nvim-lspconfig"},
+	{"hrsh7th/cmp-nvim-lsp"},
+	{"hrsh7th/cmp-buffer"},
+	{"hrsh7th/cmp-path"},
+--	{"hrsh7th/cmp-cmdline"},
+	{"hrsh7th/nvim-cmp"},
+	{"akinsho/bufferline.nvim"},
+})
+
+require("nvim-tree").setup()
+
+vim.cmd.colorscheme("catppuccin-macchiato")
+
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+
+local lsp = require("lspconfig")
+local lspcfg = require("lspconfig.configs")
+lsp.clangd.setup({
+	cmd = {"clangd", "--header-insertion=never", "--clang-tidy"},
+	filetypes = {"c", "cpp"},
+	root_dir = function(filename)
+		return lsp.util.root_pattern("build/compile_commands.json",
+			"compile_flags.txt", "compile_commands.json")(filename)
+				or vim.fn.getcwd()
+	end,
+	settings = {
+		clangd = {
+			fallbackFlags = {"-std=c++20"},
+		}
+	}
+})
+lsp.lua_ls.setup({})
+lsp.cmake.setup({})
+
+if not lspcfg.glsl_analyzer then
+	lspcfg.glsl_analyzer = {
+		default_config = {
+			cmd = {"glsl_analyzer", "--stdio"},
+			root_dir = lsp.util.root_pattern('.git'),
+			filetypes = {"glsl"},
+			autostart = true,
+			single_file_support = true
+ 		}
+	}
+end
+lsp.glsl_analyzer.setup{}
+
+local cmp = require("cmp")
+
+cmp.setup({
+	mapping = cmp.mapping.preset.insert({
+		["<C-Space>"] = cmp.mapping.complete(),
+		['<CR>'] = cmp.mapping.confirm({ select = true })
+	}),
+	sources = cmp.config.sources({
+		{name = "nvim_lsp"},
+		{name = "buffer"},
+		{name = "path"}
+	})
+})
+
+require("lualine").setup({
+	options = {
+		component_separators = { left = '', right = ''},
+		section_separators = { left = '', right = ''},
+	},
+	sections = {
+		lualine_a = {"mode"},
+		lualine_b = {"branch", "diff"},
+		lualine_c = {"filename"},
+	},
+	inactive_sections = {
+		lualine_a = {},
+		lualine_b = {"branch", "diff"},
+		lualine_c = {"filename"},
+	}
+})
+
+require("bufferline").setup{}
+
+vim.keymap.set("n", "<C-e>", "<Cmd>NvimTreeFocus<CR>")
+vim.keymap.set("n", "<C-c>", "<Cmd>%s/\\s\\+$//<CR>")

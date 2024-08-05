@@ -28,19 +28,10 @@ link_dir hypr "$HOME/.config/hypr"
 llinking "Waybar"
 link_dir waybar "$HOME/.config/waybar"
 
-llinking "LunarVim config"
-if [ ! -d "$HOME/.config/lvim" ]
+llinking "NeoVim config"
+if [ ! -d "$HOME/.config/nvim" ]
 then
-	ln -s "$PWD/lvim" "$HOME/.config/lvim"
-	if [ ! -f "$HOME/.local/bin/lvim" ]
-	then
-		linstaling "LunarVim"
-		export LV_BRANCH="release-1.3/neovim-0.9"
-		export LV_URL_BEG="https://raw.githubusercontent.com/LunarVim/LunarVim"
-		export LV_URL_END="utils/installer/install.sh"
-		export LV_INSTALLER="$LV_URL_BEG/$LV_BRANCH/$LV_URL_END"
-		bash <(curl -s "$LV_INSTALLER")
-	fi
+	ln -s "$PWD/nvim" "$HOME/.config/nvim"
 
 	export FONTS="$HOME/.local/share/fonts"
 	if [ ! -d "$FONTS/Hack" ]

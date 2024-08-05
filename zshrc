@@ -46,7 +46,7 @@ sct_launch_in_cfg_dir()
 }
 
 alias sct_cfg_update="sct_launch_in_cfg_dir \"./update.sh\""
-alias sct_lvim_in_cfg_dir="sct_launch_in_cfg_dir lvim"
+alias sct_nvim_in_cfg_dir="sct_launch_in_cfg_dir nvim"
 alias sct_zsh_in_cfg_dir="sct_launch_in_cfg_dir zsh"
 
 # ZSH

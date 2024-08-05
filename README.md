@@ -6,8 +6,8 @@ sudo pacman -Sy zsh-completions \
     zsh-autosuggestions zsh-syntax-highlighting pkgfile \
     git zsh npm xclip neovim python python-pynvim \
     hyprland waybar wofi hyprlock hyprpaper hypridle \
-    xdg-desktop-portal-hyprland wl-clipboard
-yay -S glsl_analyzer hyprshot hyprpicker
+    xdg-desktop-portal-hyprland wl-clipboard lua-language-server clang
+yay -S hyprshot hyprpicker glsl_analyzer cmake-language-server
 sudo pkgfile -u
 git clone https://github.com/SuicideCatt/configs ~/.config/sct_config
 cd ~/.config/sct_config
