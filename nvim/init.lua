@@ -48,9 +48,15 @@ require("lazy").setup({
 require("nvim-tree").setup()
 
 vim.cmd.colorscheme("catppuccin-macchiato")
-
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+local hl = {
+	"Normal", "NormalFloat", "NormalNC",
+	"SignColumn",
+--	"NvimTreeNormal", "NvimTreeNormalNC",
+	"EndOfBuffer", "MsgArea"
+}
+for _, name in ipairs(hl) do
+	vim.api.nvim_set_hl(0, name, {bg = "none"})
+end
 
 local lsp = require("lspconfig")
 local lspcfg = require("lspconfig.configs")
