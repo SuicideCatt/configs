@@ -52,7 +52,7 @@ alias sct_zsh_in_cfg_dir="sct_launch_in_cfg_dir zsh"
 # ZSH
 ZSH_CONFIG="$CONFIG_DIRECTORY/zshrc"
 alias zsh_cfg_reload=". $ZSH_CONFIG"
-alias zsh_cfg_edit="lvim $ZSH_CONFIG"
+alias zsh_cfg_edit="nvim $ZSH_CONFIG"
 
 # Other
 alias prt_get_editorconfig="cp $CONFIG_DIRECTORY/editorconfig .editorconfig"
@@ -70,7 +70,8 @@ prt_mk_build()
 		mkdir -p "/tmp/builds/${PWD##*/}"
 		ldone
 	else
-		rm -rf "$TMP/*"
+		rm -rf "$TMP/"
+		mkdir -p "/tmp/builds/${PWD##*/}"
 		printf "Already created, cache deleted\n"
 	fi
 
