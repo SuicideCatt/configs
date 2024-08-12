@@ -33,7 +33,7 @@ source "$CONFIG_DIRECTORY/minimal.zsh"
 if [ "${$(tty):0:8}" = "/dev/tty" ]
 then
 	source "$CONFIG_DIRECTORY/theme.tty.zsh";
- else
+else
 	source "$CONFIG_DIRECTORY/theme.normal.zsh";
 fi
 
@@ -148,7 +148,8 @@ prt_build()
 	fi
 }
 
-# Alias's
+alias find_in_history='cat ~/.zsh_history | grep'
+
 alias l='ls -lah'
 alias la='ls -lAh'
 alias ll='ls -lh'
