@@ -1,0 +1,140 @@
+[$Version]
+update_info=filepicker.upd:filepicker-remove-old-previews-entry,fonts_global.upd:Fonts_Global,fonts_global_toolbar.upd:Fonts_Global_Toolbar,icons_remove_effects.upd:IconsRemoveEffects,kwin.upd:animation-speed,style_widgetstyle_default_breeze.upd:StyleWidgetStyleDefaultBreeze
+
+[General]
+AccentColor=184,117,220
+ColorScheme=KritaDarker
+ColorSchemeHash=70e4510b92f2f1bdf71941a01ce86187d6cfc882
+Name=SCT's Krita darker
+
+[Icons]
+Theme=breeze-dark
+
+[KDE]
+widgetStyle=Breeze
+
+[ColorEffects:Disabled]
+ChangeSelectionColor=
+Color=20,20,20
+ColorAmount=-0.5
+ColorEffect=0
+ContrastAmount=0.45
+ContrastEffect=1
+Enable=
+IntensityAmount=0.2
+IntensityEffect=2
+
+[ColorEffects:Inactive]
+ChangeSelectionColor=false
+Color=0,0,0
+ColorAmount=0.025
+ColorEffect=2
+ContrastAmount=0.4
+ContrastEffect=2
+Enable=false
+IntensityAmount=0
+IntensityEffect=0
+
+[Colors:Button]
+BackgroundAlternate=142,95,167
+BackgroundNormal=45,45,45
+DecorationFocus=184,117,220
+DecorationHover=184,117,220
+ForegroundActive=184,117,220
+ForegroundInactive=120,119,117
+ForegroundLink=184,117,220
+ForegroundNegative=232,88,72
+ForegroundNeutral=192,162,95
+ForegroundNormal=235,235,235
+ForegroundPositive=120,183,83
+ForegroundVisited=142,121,165
+
+[Colors:Complementary]
+DecorationFocus=184,117,220
+DecorationHover=184,117,220
+ForegroundActive=184,117,220
+ForegroundLink=184,117,220
+
+[Colors:Selection]
+BackgroundAlternate=137,90,162
+BackgroundNormal=137,90,162
+DecorationFocus=184,117,220
+DecorationHover=184,117,220
+ForegroundActive=184,117,220
+ForegroundInactive=255,255,255
+ForegroundLink=184,117,220
+ForegroundNegative=232,88,72
+ForegroundNeutral=192,162,95
+ForegroundNormal=255,255,255
+ForegroundPositive=120,183,83
+ForegroundVisited=142,121,165
+
+[Colors:Tooltip]
+BackgroundAlternate=17,51,86
+BackgroundNormal=80,80,80
+DecorationFocus=184,117,220
+DecorationHover=184,117,220
+ForegroundActive=184,117,220
+ForegroundInactive=120,119,117
+ForegroundLink=184,117,220
+ForegroundNegative=232,88,72
+ForegroundNeutral=192,162,95
+ForegroundNormal=196,209,224
+ForegroundPositive=120,183,83
+ForegroundVisited=142,121,165
+
+[Colors:View]
+BackgroundAlternate=36,35,35
+BackgroundNormal=28,28,28
+DecorationFocus=184,117,220
+DecorationHover=184,117,220
+ForegroundActive=184,117,220
+ForegroundInactive=120,119,117
+ForegroundLink=184,117,220
+ForegroundNegative=232,88,72
+ForegroundNeutral=192,162,95
+ForegroundNormal=235,235,235
+ForegroundPositive=120,183,83
+ForegroundVisited=142,121,165
+
+[Colors:Window]
+BackgroundAlternate=52,51,50
+BackgroundNormal=50,50,50
+DecorationFocus=184,117,220
+DecorationHover=184,117,220
+ForegroundActive=184,117,220
+ForegroundInactive=120,119,117
+ForegroundLink=184,117,220
+ForegroundNegative=232,88,72
+ForegroundNeutral=192,162,95
+ForegroundNormal=235,235,235
+ForegroundPositive=120,183,83
+ForegroundVisited=142,121,165
+
+[KFileDialog Settings]
+Allow Expansion=false
+Automatically select filename extension=true
+Breadcrumb Navigation=true
+Decoration position=2
+LocationCombo Completionmode=5
+PathCombo Completionmode=5
+Show Bookmarks=false
+Show Full Path=false
+Show Inline Previews=true
+Show Preview=false
+Show Speedbar=true
+Show hidden files=false
+Sort by=Name
+Sort directories first=true
+Sort hidden files last=false
+Sort reversed=false
+Speedbar Width=140
+View Style=DetailTree
+
+[WM]
+activeBackground=80,80,80
+activeBlend=255,255,255
+activeForeground=255,255,255
+inactiveBackground=64,63,62
+inactiveBlend=75,71,67
+inactiveForeground=128,127,125
