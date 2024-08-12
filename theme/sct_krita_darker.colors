@@ -5,7 +5,7 @@ update_info=filepicker.upd:filepicker-remove-old-previews-entry,fonts_global.upd
 AccentColor=184,117,220
 ColorScheme=KritaDarker
 ColorSchemeHash=70e4510b92f2f1bdf71941a01ce86187d6cfc882
-Name=SCT's Krita darker
+Name=SCt's Krita darker
 
 [Icons]
 Theme=breeze-dark
