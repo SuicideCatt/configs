@@ -43,6 +43,7 @@ require("lazy").setup({
 --	{"hrsh7th/cmp-cmdline"},
 	{"hrsh7th/nvim-cmp"},
 	{"akinsho/bufferline.nvim"},
+	{"lewis6991/gitsigns.nvim"},
 })
 
 require("nvim-tree").setup()
@@ -125,3 +126,5 @@ require("bufferline").setup{}
 
 vim.keymap.set("n", "<C-e>", "<Cmd>NvimTreeFocus<CR>")
 vim.keymap.set("n", "<C-c>", "<Cmd>%s/\\s\\+$//<CR>")
+
+require('gitsigns').setup()
