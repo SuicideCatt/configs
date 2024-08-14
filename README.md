@@ -1,4 +1,4 @@
-# My configurations for zsh and LunarVim
+# My configurations
 
 For install on Arch based systems:
 ```sh
