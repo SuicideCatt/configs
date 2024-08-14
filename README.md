@@ -4,7 +4,7 @@ For install on Arch based systems:
 ```sh
 sudo pacman -Sy zsh-completions \
 	zsh-autosuggestions zsh-syntax-highlighting pkgfile \
-	git zsh neovim python python-pynvim \
+	git zsh neovim python-gobject python-pynvim \
 	qt5ct qt6ct \
 	hyprland waybar wofi hyprlock hyprpaper hypridle \
 	xdg-desktop-portal-hyprland wl-clipboard kitty swaync \
