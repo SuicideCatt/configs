@@ -30,6 +30,7 @@ QT_COLORS="$SHARE/color-schemes"
 
 mkdir -p $FONTS
 mkdir -p $WALLPAPERS
+mkdir =p $ICONS
 mkdir -p $QT_COLORS
 
 llinking zshrc
