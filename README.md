@@ -5,7 +5,7 @@ For install on Arch based systems:
 sudo pacman -Sy zsh-completions \
 	zsh-autosuggestions zsh-syntax-highlighting pkgfile \
 	git zsh neovim python-gobject python-pynvim \
-	qt5ct qt6ct \
+	qt5ct qt6ct glib2 \
 	hyprland waybar wofi hyprlock hyprpaper hypridle \
 	xdg-desktop-portal-hyprland wl-clipboard kitty swaync \
 	lua-language-server clang
@@ -23,8 +23,12 @@ sct_cfg_update
 ```
 
 Wallpapers
-- Next - KDE Plasma 6 Default
-- morian\_224\_013.png - IDK
+- [Next](https://invent.kde.org/plasma/breeze/tree/Plasma/6.1/wallpapers/Next)
+- morian\_224\_013.png - IDK, Hakurei Reimu from TouHou Project
 
 Cursor
-- cz-Hickson-Black
+- [cz-Hickson-Black](https://github.com/charakterziffer/cursor-toolbox)
+
+Themes
+- [Catppuccin GTK](https://github.com/catppuccin/gtk)
+- [Catppuccin qtXct](https://github.com/catppuccin/qt5ct)

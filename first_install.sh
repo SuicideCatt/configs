@@ -8,4 +8,7 @@ read CFG
 
 ./install.sh
 
+gsettings set org.gnome.desktop.interface gtk-theme CatppuccinMacchiatoMauve
+gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+
 chch -s /usr/bin/zsh

@@ -26,11 +26,13 @@ UCONFIG="$HOME/.config"
 FONTS="$SHARE/fonts"
 WALLPAPERS="$SHARE/wallpapers"
 ICONS="$SHARE/icons"
+THEMES="$SHARE/themes"
 QT_COLORS="$SHARE/color-schemes"
 
 mkdir -p $FONTS
 mkdir -p $WALLPAPERS
-mkdir =p $ICONS
+mkdir -p $ICONS
+mkdir -p $THEMES
 mkdir -p $QT_COLORS
 
 llinking zshrc
@@ -54,11 +56,13 @@ link_dir kitty "$UCONFIG/kitty"
 llinking "XDG-Mime config"
 link_file mimeapps.list "$UCONFIG/mimeapps.list"
 
-llinking "GTK3 theme"
-link_dir theme/gtk "$UCONFIG/gtk-3.0"
+llinking "GTK theme"
+link_dir theme/CatppuccinMacchiatoMauve "$THEMES/CatppuccinMacchiatoMauve"
 
-llinking "GTK4 theme"
-link_dir theme/gtk "$UCONFIG/gtk-4.0"
+llinking "qtXct config"
+link_dir_ret theme/qtXct "$UCONFIG/qt5ct" && \
+	link_dir_ret theme/qtXct "$UCONFIG/qt6ct" && ldone \
+	|| lskip
 
 llinking "Qt color scheme"
 link_file theme/sct_krita_darker.colors "$QT_COLORS/sct_krita_darker.colors"
