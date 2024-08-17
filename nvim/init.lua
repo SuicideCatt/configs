@@ -44,6 +44,7 @@ require("lazy").setup({
 	{"hrsh7th/nvim-cmp"},
 	{"akinsho/bufferline.nvim"},
 	{"lewis6991/gitsigns.nvim"},
+	{'brenoprata10/nvim-highlight-colors'},
 })
 
 require("nvim-tree").setup()
@@ -128,3 +129,9 @@ vim.keymap.set("n", "<C-e>", "<Cmd>NvimTreeFocus<CR>")
 vim.keymap.set("n", "<C-c>", "<Cmd>%s/\\s\\+$//<CR>")
 
 require('gitsigns').setup()
+
+require('nvim-highlight-colors').setup({
+	enable_hex = true,
+	enable_named_colors = true,
+	enable_tailwind = true,
+})
