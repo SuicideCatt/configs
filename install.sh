@@ -57,7 +57,10 @@ llinking "XDG-Mime config"
 link_file mimeapps.list "$UCONFIG/mimeapps.list"
 
 llinking "GTK theme"
-link_dir theme/CatppuccinMacchiatoMauve "$THEMES/CatppuccinMacchiatoMauve"
+link_dir theme/oomox-sct_krita_darker "$THEMES/oomox-sct_krita_darker"
+
+llinking "Icons theme"
+link_dir theme/oomox-sct_papirus "$ICONS/oomox-sct_papirus"
 
 llinking "qtXct config"
 link_dir_ret theme/qtXct "$UCONFIG/qt5ct" && \

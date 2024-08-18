@@ -29,6 +29,9 @@ Wallpapers
 Cursor
 - [cz-Hickson-Black](https://github.com/charakterziffer/cursor-toolbox)
 
+Icons
+- [Papirus icons](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) generated on [oomox](https://github.com/themix-project)
+
 Themes
-- [Catppuccin GTK](https://github.com/catppuccin/gtk)
-- [Catppuccin qtXct](https://github.com/catppuccin/qt5ct)
+- Qt: Krita Darker theme but NO BLUE COLOR
+- GTK: Wery bad(maybe) port of a Qt theme on [oomox](https://github.com/themix-project)

@@ -2,10 +2,10 @@
 update_info=dolphin_detailsmodesettings.upd:rename-leading-padding,dolphin_detailsmodesettings.upd:move-content-display
 
 [General]
+ColorScheme=sct_krita_darker
+TerminalApplication=kitty
 Version=202
 ViewPropsTimestamp=2024,3,7,1,42,58.086
-TerminalApplication=kitty
-ColorScheme=sct_krita_darker
 
 [KFileDialog Settings]
 Places Icons Auto-resize=false
