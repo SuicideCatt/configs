@@ -62,6 +62,9 @@ link_dir theme/oomox-sct_krita_darker "$THEMES/oomox-sct_krita_darker"
 llinking "Icons theme"
 link_dir theme/oomox-sct_papirus "$ICONS/oomox-sct_papirus"
 
+llinking "Cursor"
+link_dir theme/cz-Hickson-Black "$ICONS/cz-Hickson-Black"
+
 llinking "qtXct config"
 link_dir_ret theme/qtXct "$UCONFIG/qt5ct" && \
 	link_dir_ret theme/qtXct "$UCONFIG/qt6ct" && ldone \
@@ -78,8 +81,5 @@ link_file_ret "wallpapers/morian_224_013.png" \
 		"$WALLPAPERS/morian_224_013.png" && \
 	link_dir_ret "wallpapers/Next" "$WALLPAPERS/Next" && ldone \
 	|| lskip
-
-linstaling "Cursor"
-link_dir "icons/cz-Hickson-Black" "$ICONS/cz-Hickson-Black"
 
 fc-cache -f -v

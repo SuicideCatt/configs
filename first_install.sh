@@ -11,5 +11,6 @@ read CFG
 gsettings set org.gnome.desktop.interface gtk-theme oomox-sct_krita_darker
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 gsettings set org.gnome.desktop.interface icon-theme oomox-sct_papirus
+gsettings set org.gnome.desktop.interface cursor-theme cz-Hickson-Black
 
 chch -s /usr/bin/zsh
