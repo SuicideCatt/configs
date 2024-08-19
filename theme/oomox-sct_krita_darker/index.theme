@@ -4,7 +4,6 @@ Name=SCt's Krita Darker GTK
 Encoding=UTF-8
 
 [X-GNOME-Metatheme]
-Name=oomox-Test
-GtkTheme=oomox-Test
-IconTheme=oomox-Test
-MetacityTheme=oomox-Test
+Name=oomox-sct_krita_darker
+GtkTheme=oomox-sct_krita_darker
+IconTheme=oomox-sct_papirus
