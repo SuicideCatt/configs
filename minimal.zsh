@@ -31,7 +31,7 @@ function mnml_status {
         err_ansi="$MNML_ERR_COLOR"
     fi
 
-    printf '%b' "%{\e[$job_ansi;3${err_ansi}m%}%(!.#.$uchar)%{\e[0m%}"
+    printf '%b' "%{\e[$job_ansi;3${err_ansi}m%}%(!.$uchar #.$uchar)%{\e[0m%}"
 }
 
 function mnml_keymap {
