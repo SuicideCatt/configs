@@ -158,8 +158,10 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "[{volume}%]",
-		"format-muted": "[Muted]",
+        "format": "[{volume}% {format_source}]",
+		"format-muted": "[Muted {format_source}]",
+		"format-source": "(Mic on)",
+		"format-source-muted": "(Mic off)",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
