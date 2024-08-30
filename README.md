@@ -7,7 +7,7 @@ sudo pacman -Sy zsh-completions \
 	git zsh neovim python-gobject python-pynvim \
 	qt5ct qt6ct glib2 \
 	hyprland waybar wofi hyprlock hyprpaper hypridle \
-	xdg-desktop-portal-hyprland wl-clipboard kitty swaync \
+	xdg-desktop-portal-hyprland wl-clipboard kitty dolphin swaync \
 	lua-language-server clang
 yay -S hyprshot hyprpicker glsl_analyzer cmake-language-server
 sudo pkgfile -u
