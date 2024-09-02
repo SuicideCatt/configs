@@ -51,10 +51,10 @@ require("nvim-tree").setup()
 
 vim.cmd.colorscheme("catppuccin-macchiato")
 local hl = {
-	"Normal", "NormalFloat", "NormalNC",
+	"Normal", --[["NormalFloat",]] "NormalNC",
 	"SignColumn",
 --	"NvimTreeNormal", "NvimTreeNormalNC",
-	"EndOfBuffer", "MsgArea"
+	"EndOfBuffer", -- "MsgArea"
 }
 for _, name in ipairs(hl) do
 	vim.api.nvim_set_hl(0, name, {bg = "none"})
