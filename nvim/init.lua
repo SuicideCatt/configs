@@ -45,6 +45,11 @@ require("lazy").setup({
 	{"akinsho/bufferline.nvim"},
 	{"lewis6991/gitsigns.nvim"},
 	{'brenoprata10/nvim-highlight-colors'},
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {}
+	}
 })
 
 require("nvim-tree").setup()
