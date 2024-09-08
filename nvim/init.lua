@@ -49,10 +49,29 @@ require("lazy").setup({
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = {}
+	},
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+	    opts = {},
 	}
 })
 
 require("nvim-tree").setup()
+require("ibl").setup()
+
+require("nvim-treesitter.configs").setup({
+	ensure_installed = {
+		"c", "cpp", "lua", "cmake", "make", "bash",
+		"markdown", "markdown_inline"
+	},
+	sync_install = true,
+	auto_install = false,
+
+	highlight = {
+		enable = true
+	}
+})
 
 vim.cmd.colorscheme("catppuccin-macchiato")
 local hl = {
@@ -81,6 +100,7 @@ lsp.clangd.setup({
 		}
 	}
 })
+
 lsp.lua_ls.setup({})
 lsp.cmake.setup({})
 
