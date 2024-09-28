@@ -57,7 +57,12 @@ require("lazy").setup({
 	}
 })
 
-require("nvim-tree").setup()
+require("nvim-tree").setup({
+	git = {
+		enable = true,
+		ignore = false,
+	}
+})
 require("ibl").setup()
 
 require("nvim-treesitter.configs").setup({
