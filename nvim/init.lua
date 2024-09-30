@@ -108,6 +108,7 @@ lsp.clangd.setup({
 
 lsp.lua_ls.setup({})
 lsp.cmake.setup({})
+lsp.gdscript.setup({})
 
 if not lspcfg.glsl_analyzer then
 	lspcfg.glsl_analyzer = {
