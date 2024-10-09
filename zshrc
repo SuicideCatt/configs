@@ -55,7 +55,7 @@ alias zsh_cfg_reload=". $ZSH_CONFIG"
 alias zsh_cfg_edit="nvim $ZSH_CONFIG"
 
 # Other
-alias prt_get_editorconfig="cp $CONFIG_DIRECTORY/.editorconfig editorconfig"
+alias prt_get_editorconfig="cp $CONFIG_DIRECTORY/.editorconfig ."
 
 prt_mk_build()
 {
