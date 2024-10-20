@@ -47,8 +47,8 @@ link_dir waybar "$UCONFIG/waybar"
 llinking "NeoVim config"
 link_dir nvim "$UCONFIG/nvim"
 
-llinking "Dolphin config"
-link_file dolphinrc "$UCONFIG/dolphinrc"
+llinking "PCManFM-QT config"
+link_dir pcmanfm-qt "$UCONFIG/pcmanfm-qt"
 
 llinking "Kitty config"
 link_dir kitty "$UCONFIG/kitty"
