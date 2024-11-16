@@ -7,6 +7,8 @@ vim.opt.cursorline = true
 
 vim.opt.number = true
 
+vim.opt.swapfile = false;
+
 vim.opt.textwidth = 80
 vim.opt.colorcolumn = "+1"
 
