@@ -95,6 +95,11 @@ prt_mk_build()
 				cmake -S "$(pwd)" -B "$PRT" -DCMAKE_BUILD_TYPE=Debug \
 					-DCMAKE_EXPORT_COMPILE_COMMANDS=YES -G "Unix Makefiles"
 			;;
+			dt)
+				cmake -S "$(pwd)" -B "$PRT" -DCMAKE_BUILD_TYPE=Debug \
+					-DCMAKE_EXPORT_COMPILE_COMMANDS=YES -DTESTS=ON \
+					-G "Unix Makefiles"
+			;;
 			r)
 				cmake -S "$(pwd)" -B "$PRT" -DCMAKE_BUILD_TYPE=Release \
 					-G "Unix Makefiles"
