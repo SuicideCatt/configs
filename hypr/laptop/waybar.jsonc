@@ -97,7 +97,7 @@
         // "timezone": "America/New_York",
 		"interval": 1,
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%Y/%m.%d %H:%M:%S}"
+        "format": "{:%Y/%m.%d %H:%M:%S %A}"
     },
     "cpu": {
         "format": "[{usage}% {avg_frequency}MHz]",
