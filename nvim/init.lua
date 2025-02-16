@@ -70,7 +70,7 @@ require("ibl").setup()
 require("nvim-treesitter.configs").setup({
 	ensure_installed = {
 		"c", "cpp", "lua", "cmake", "make", "bash",
-		"markdown", "markdown_inline"
+		"markdown", "markdown_inline", "glsl"
 	},
 	sync_install = true,
 	auto_install = false,
