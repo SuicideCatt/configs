@@ -51,10 +51,8 @@
 	"hyprland/window": {
 		"format": "{}",
 		"max-length": 45,
-		"rewrite": {
-			"(.*) : (.*) — konsole": "term: $1 $2"
-		},
-		"icon": true
+		"icon": true,
+		"separate-outputs": true
 	},
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
@@ -178,11 +176,13 @@
 		"format": "[ {}]",
         "return-type": "json",
         "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "player"
-        },
-		"format-alt": "[{icon}]",
+		"format-icons": {
+			"spotify": "spotify",
+			"firefox": "firefox",
+			"vlc": "vlc",
+			"default": "player"
+		},
+		"format-alt": "[play in {icon}]",
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
