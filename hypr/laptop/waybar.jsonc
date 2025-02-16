@@ -14,7 +14,7 @@
     ],
     "modules-right": [
         // "mpd",
-        "custom/media",
+        //"custom/media",
         //"idle_inhibitor",
         "pulseaudio",
         "backlight",
