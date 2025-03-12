@@ -81,11 +81,11 @@ function mnml_git {
 		local behind=""
 		IFS=", " read s ahead s behind <<< "$(echo $ahead_behind | tr "\\n" "\\0")"
 		if [ -n "$ahead" ] && [ -n "$behind" ]; then
-			ahead_behind="($ahead^ $behind)"
+			ahead_behind="($ahead↑ $behind↓)"
 		elif [ -n "$ahead" ]; then
-			ahead_behind="($ahead^)"
+			ahead_behind="($ahead↑)"
 		elif [ -n "$behind" ]; then
-			ahead_behind="($behind)"
+			ahead_behind="($behind↓)"
 		else
 			ahead_behind=""
 		fi
