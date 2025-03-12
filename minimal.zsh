@@ -76,10 +76,24 @@ function mnml_git {
     local bname="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
 
     if [ -n "$bname" ]; then
+		local ahead_behind="$(git for-each-ref --format="%(push:track,nobracket)" refs/heads 2> /dev/null)"
+		local ahead=""
+		local behind=""
+		IFS=", " read s ahead s behind <<< "$(echo $ahead_behind | tr "\\n" "\\0")"
+		if [ -n "$ahead" ] && [ -n "$behind" ]; then
+			ahead_behind="($ahead^ $behind)"
+		elif [ -n "$ahead" ]; then
+			ahead_behind="($ahead^)"
+		elif [ -n "$behind" ]; then
+			ahead_behind="($behind)"
+		else
+			ahead_behind=""
+		fi
+
         if [ -n "$(git status --porcelain 2> /dev/null)" ]; then
             statc="%{\e[0;3${MNML_ERR_COLOR}m%}"
         fi
-        printf '%b' "$statc$bname%{\e[0m%}"
+		printf '%b' "$statc$bname$ahead_behind%{\e[0m%}"
     fi
 }
 
