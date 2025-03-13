@@ -35,3 +35,4 @@ Icons
 Themes
 - Qt: Krita Darker theme but NO BLUE COLOR
 - GTK: Wery bad(maybe) port of a Qt theme on [oomox](https://github.com/themix-project)
+- ZSH: [subnixr/minimal](https://github.com/subnixr/minimal)
