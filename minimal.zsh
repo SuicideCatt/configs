@@ -8,6 +8,9 @@ MNML_NORMAL_CHAR="${MNML_NORMAL_CHAR:-·}"
 MNML_ELLIPSIS_CHAR="${MNML_ELLIPSIS_CHAR:-..}"
 MNML_BGJOB_MODE=${MNML_BGJOB_MODE:-4}
 
+MNML_GIT_AHEAD_CHAR="${MNML_GIT_AHEAD_CHAR:-↑}"
+MNML_GIT_BEHIND_CHAR="${MNML_GIT_BEHIND_CHAR:-↓}"
+
 [ "${+MNML_PROMPT}" -eq 0 ] && MNML_PROMPT=(mnml_ssh mnml_pyenv mnml_status mnml_keymap)
 [ "${+MNML_RPROMPT}" -eq 0 ] && MNML_RPROMPT=('mnml_cwd 2 0' mnml_git)
 [ "${+MNML_INFOLN}" -eq 0 ] && MNML_INFOLN=(mnml_err mnml_jobs mnml_uhp mnml_files)
@@ -77,15 +80,16 @@ function mnml_git {
 
     if [ -n "$bname" ]; then
 		local ahead_behind="$(git for-each-ref --format="%(push:track,nobracket)" refs/heads 2> /dev/null)"
+		local s=""
 		local ahead=""
 		local behind=""
 		IFS=", " read s ahead s behind <<< "$(echo $ahead_behind | tr "\\n" "\\0")"
 		if [ -n "$ahead" ] && [ -n "$behind" ]; then
-			ahead_behind="($ahead↑ $behind↓)"
+			ahead_behind="($ahead$MNML_GIT_AHEAD_CHAR $behind$MNML_GIT_BEHIND_CHAR)"
 		elif [ -n "$ahead" ]; then
-			ahead_behind="($ahead↑)"
+			ahead_behind="($ahead$MNML_GIT_AHEAD_CHAR)"
 		elif [ -n "$behind" ]; then
-			ahead_behind="($behind↓)"
+			ahead_behind="($behind$MNML_GIT_BEHIND_CHAR)"
 		else
 			ahead_behind=""
 		fi
