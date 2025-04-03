@@ -151,6 +151,17 @@ prt_build()
 	else
 		./build.sh -b "$PRT" -j "$THREADS"
 	fi
+
+	BR=$?
+	if [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ]
+	then
+		if [ "$BR" -ne 0 ]
+		then
+			hyprctl notify 3 5000 0 "Build failed!" > /dev/null
+		else
+			hyprctl notify 5 5000 0 "Build complete!" > /dev/null
+		fi
+	fi
 }
 
 alias find_in_history='cat ~/.zsh_history | grep'
