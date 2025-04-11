@@ -156,8 +156,24 @@ require("lualine").setup({
 	}
 })
 
-require("bufferline").setup{}
+local bufferline = require("bufferline")
+bufferline.setup {
+	options = {
+		style_preset = bufferline.style_preset.no_italic,
+		offsets = {
+			{
+				filetype = "NvimTree",
+				text = "Files",
+				text_align = "center",
+				separator = true
+			}
+		},
+		diagnostics = "nvim_lsp"
+	}
+}
+require("bufferline.groups").builtin.pinned:with({icon = "󰐃 "})
 
+vim.keymap.set("n", "<C-p>", "<Cmd>BufferLineTogglePin<CR>")
 vim.keymap.set("n", "<C-e>", "<Cmd>NvimTreeFocus<CR>")
 vim.keymap.set("n", "<C-c>", "<Cmd>%s/\\s\\+$//<CR>")
 vim.keymap.set("n", "<C-k>", "<Cmd>lua vim.lsp.buf.definition()<CR>")
