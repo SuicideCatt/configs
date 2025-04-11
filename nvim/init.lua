@@ -166,6 +166,9 @@ require('gitsigns').setup()
 
 require('nvim-highlight-colors').setup({
 	enable_hex = true,
+	enable_short_hex = true,
+	enable_rgb = true,
+	enable_ansi = true,
 	enable_named_colors = true,
 	enable_tailwind = true,
 })
