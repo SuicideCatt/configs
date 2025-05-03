@@ -180,6 +180,7 @@ vim.keymap.set("n", "<C-p>", "<Cmd>BufferLineTogglePin<CR>")
 vim.keymap.set("n", "<C-e>", "<Cmd>NvimTreeFocus<CR>")
 vim.keymap.set("n", "<C-c>", "<Cmd>%s/\\s\\+$//<CR>")
 vim.keymap.set("n", "<C-k>", "<Cmd>lua vim.lsp.buf.definition()<CR>")
+vim.keymap.set("n", "<C-S-k>", "<Cmd>lua vim.lsp.buf.declaration()<CR>")
 
 require('gitsigns').setup()
 
