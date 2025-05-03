@@ -57,7 +57,8 @@ require("lazy").setup({
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
 		opts = {},
-	}
+	},
+	{"OXY2DEV/markview.nvim"},
 })
 
 require("nvim-tree").setup({
