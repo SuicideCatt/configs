@@ -96,7 +96,7 @@ end
 local lsp = require("lspconfig")
 local lspcfg = require("lspconfig.configs")
 lsp.clangd.setup({
-	cmd = {"clangd", "--header-insertion=never", "--clang-tidy"},
+	cmd = {"clangd", "--header-insertion=never", "--completion-style=detailed", "--clang-tidy"},
 	filetypes = {"c", "cpp"},
 	root_dir = function(filename)
 		return lsp.util.root_pattern("build/compile_commands.json",
