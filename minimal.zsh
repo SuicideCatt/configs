@@ -80,15 +80,18 @@ function mnml_git {
 
     if [ -n "$bname" ]; then
 		local ahead_behind="$(git for-each-ref --format="%(push:track,nobracket)" refs/heads 2> /dev/null)"
-		local s=""
+		local s1=""
+		local s2=""
 		local ahead=""
 		local behind=""
-		IFS=", " read s ahead s behind <<< "$(echo $ahead_behind | tr "\\n" "\\0")"
+		IFS=", " read s1 ahead s2 behind <<< "$(echo $ahead_behind | tr "\\n" "\\0")"
 		if [ -n "$ahead" ] && [ -n "$behind" ]; then
 			ahead_behind="($ahead$MNML_GIT_AHEAD_CHAR $behind$MNML_GIT_BEHIND_CHAR)"
-		elif [ -n "$ahead" ]; then
+		elif [[ $s1 == "ahead" ]] && [ -n "$ahead" ]; then
 			ahead_behind="($ahead$MNML_GIT_AHEAD_CHAR)"
-		elif [ -n "$behind" ]; then
+		elif [[ $s1 == "behind" ]] && [ -n "$ahead" ]; then
+			ahead_behind="($ahead$MNML_GIT_BEHIND_CHAR)"
+		elif [[ $s2 == "behind" ]] && [ -n "$behind" ]; then
 			ahead_behind="($behind$MNML_GIT_BEHIND_CHAR)"
 		else
 			ahead_behind=""
