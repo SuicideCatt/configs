@@ -47,6 +47,9 @@ link_dir waybar "$UCONFIG/waybar"
 llinking "NeoVim config"
 link_dir nvim "$UCONFIG/nvim"
 
+llinking "Ranger config"
+link_dir ranger "$UCONFIG/ranger"
+
 llinking "PCManFM-QT config"
 link_dir pcmanfm-qt "$UCONFIG/pcmanfm-qt"
 
