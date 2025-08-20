@@ -54,6 +54,11 @@ ZSH_CONFIG="$CONFIG_DIRECTORY/zshrc"
 alias zsh_cfg_reload=". $ZSH_CONFIG"
 alias zsh_cfg_edit="nvim $ZSH_CONFIG"
 
+send_hyprnotify()
+{
+	hyprctl notify 3 5000 0 "$1" > /dev/null
+}
+
 # Other
 alias prt_get_editorconfig="cp $CONFIG_DIRECTORY/.editorconfig ."
 
@@ -157,9 +162,9 @@ prt_build()
 	then
 		if [ "$BR" -ne 0 ]
 		then
-			hyprctl notify 3 5000 0 "Build failed!" > /dev/null
+			send_hyprnotify "Build failed!" > /dev/null
 		else
-			hyprctl notify 5 5000 0 "Build complete!" > /dev/null
+			send_hyprnotify "Build complete!" > /dev/null
 		fi
 	fi
 }
