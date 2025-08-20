@@ -114,6 +114,17 @@ prt_mk_build()
 				return 1
 			;;
 		esac
+
+		BR=$?
+		if [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ]
+		then
+			if [ "$BR" -ne 0 ]
+			then
+				send_hyprnotify "Cache generation fail!"
+			else
+				send_hyprnotify "Cache generation complete!"
+			fi
+		fi
 	fi
 }
 
