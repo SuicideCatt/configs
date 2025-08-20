@@ -259,9 +259,14 @@ function _mnml_me {
     printf '%b' "${(j:\n:)output}" | less -XFR
 }
 
-# capture exit status and reset prompt
-function _mnml_zle-line-init {
+# capture exit status and
+_mnml_capture_estatus()
+{
     MNML_LAST_ERR="$?" # I need to capture this ASAP
+}
+
+# reset prompt
+function _mnml_zle-line-init {
     zle reset-prompt
 }
 
@@ -316,6 +321,7 @@ PROMPT='$(_mnml_wrap MNML_PROMPT) '
 RPROMPT='$(_mnml_wrap MNML_RPROMPT)'
 
 _mnml_bind_widgets
+precmd_functions=(_mnml_capture_estatus "${precmd_functions[@]}")
 
 bindkey -M main  "^M" buffer-empty
 bindkey -M vicmd "^M" buffer-empty
