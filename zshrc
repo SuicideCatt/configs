@@ -167,6 +167,8 @@ prt_build()
 			send_hyprnotify "Build complete!" > /dev/null
 		fi
 	fi
+
+	return "$BR"
 }
 
 alias find_in_history='cat ~/.zsh_history | grep'
