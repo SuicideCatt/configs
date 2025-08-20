@@ -111,7 +111,7 @@ prt_mk_build()
 			;;
 			*)
 				echo "d or r"
-				return 1
+				false
 			;;
 		esac
 
@@ -125,6 +125,8 @@ prt_mk_build()
 				send_hyprnotify "Cache generation complete!"
 			fi
 		fi
+
+		return "$BR"
 	fi
 }
 
