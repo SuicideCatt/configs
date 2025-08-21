@@ -56,7 +56,7 @@ alias zsh_cfg_edit="nvim $ZSH_CONFIG"
 
 send_hyprnotify()
 {
-	hyprctl notify 3 5000 0 "$1" > /dev/null
+	hyprctl notify "$1" 5000 0 "$2" > /dev/null
 }
 
 # Other
@@ -120,9 +120,9 @@ prt_mk_build()
 		then
 			if [ "$BR" -ne 0 ]
 			then
-				send_hyprnotify "Cache generation fail!"
+				send_hyprnotify 3 "Cache generation fail!"
 			else
-				send_hyprnotify "Cache generation complete!"
+				send_hyprnotify 5 "Cache generation complete!"
 			fi
 		fi
 
@@ -175,9 +175,9 @@ prt_build()
 	then
 		if [ "$BR" -ne 0 ]
 		then
-			send_hyprnotify "Build failed!" > /dev/null
+			send_hyprnotify 3 "Build failed!" > /dev/null
 		else
-			send_hyprnotify "Build complete!" > /dev/null
+			send_hyprnotify 5 "Build complete!" > /dev/null
 		fi
 	fi
 
