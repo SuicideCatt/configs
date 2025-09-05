@@ -7,6 +7,7 @@
 	"spacing": 4, // Gaps between modules (4px)
 	// Choose the order of the modules
 	"modules-left": [
+		"privacy",
 		"hyprland/workspaces",
 	],
 	"modules-center": [
@@ -43,6 +44,28 @@
 	//		 "default": ""
 	//	 }
 	// },
+	"privacy": {
+		"icon-spacing": 4,
+		"icon-size": 18,
+		"transition-duration": 250,
+		"modules": [
+			{
+				"type": "screenshare",
+				"tooltip": true,
+				"tooltip-icon-size": 24
+			},
+			{
+				"type": "audio-out",
+				"tooltip": true,
+				"tooltip-icon-size": 24
+			},
+			{
+				"type": "audio-in",
+				"tooltip": true,
+				"tooltip-icon-size": 24
+			}
+		]
+	},
 	"hyprland/language": {
 		"format": "[{short}]"
 	},
