@@ -165,6 +165,7 @@ prt_build()
 
 	if [ ! $#io_cmake = 0 ]
 	then
+		cmake --build "$PRT" -t rebuild_cache
 		cmake --build "$PRT" -- "-j$THREADS"
 	else
 		./build.sh -b "$PRT" -j "$THREADS"
