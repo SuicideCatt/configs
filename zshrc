@@ -187,6 +187,8 @@ prt_build()
 
 alias find_in_history='cat ~/.zsh_history | grep'
 
+alias cava_on_bg='kitten panel --config $CONFIG_DIRECTORY/kitty/cava.conf --edge=background --output-name=Cava cava'
+
 alias l='ls -lah'
 alias la='ls -lAh'
 alias ll='ls -lh'
