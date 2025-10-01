@@ -85,4 +85,8 @@ link_file_ret "wallpapers/morian_224_013.png" \
 	link_dir_ret "wallpapers/Next" "$WALLPAPERS/Next" && ldone \
 	|| lskip
 
+llinking "Cava config"
+link_dir cava "$UCONFIG/cava"
+
+
 fc-cache -f -v
