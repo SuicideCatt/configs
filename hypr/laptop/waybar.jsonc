@@ -66,6 +66,13 @@
 				"tooltip": true,
 				"tooltip-icon-size": 24
 			}
+		],
+		"ignore-monitor": true,
+		"ignore": [
+			{
+				"type": "audio-in",
+				"name": "cava"
+			}
 		]
 	},
 	"hyprland/language": {
