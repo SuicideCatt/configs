@@ -20,6 +20,7 @@
         "pulseaudio",
         "backlight",
         "cpu",
+		"power-profiles-daemon",
         "memory",
 		"battery",
         // "temperature",
@@ -166,14 +167,13 @@
         "bat": "BAT2"
     },
     "power-profiles-daemon": {
-      "format": "{icon}",
+      "format": "[{icon}]",
       "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
       "tooltip": true,
       "format-icons": {
-        "default": "",
-        "performance": "",
-        "balanced": "",
-        "power-saver": ""
+        "performance": "p",
+        "balanced": "b",
+        "power-saver": "s"
       }
     },
     "network": {
