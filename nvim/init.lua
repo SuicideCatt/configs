@@ -181,6 +181,7 @@ vim.keymap.set("n", "<C-e>", "<Cmd>NvimTreeFocus<CR>")
 vim.keymap.set("n", "<C-c>", "<Cmd>%s/\\s\\+$//<CR>")
 vim.keymap.set("n", "<C-k>", "<Cmd>lua vim.lsp.buf.definition()<CR>")
 vim.keymap.set("n", "<C-S-k>", "<Cmd>lua vim.lsp.buf.declaration()<CR>")
+vim.keymap.set("n", "<C-d>", "<Cmd>lua vim.diagnostic.open_float()<CR>")
 
 require('gitsigns').setup()
 
