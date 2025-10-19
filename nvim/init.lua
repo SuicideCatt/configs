@@ -38,7 +38,7 @@ require("lazy").setup({
 	{"nvim-tree/nvim-tree.lua"},
 	{"tree-sitter/tree-sitter"},
 	{"nvim-treesitter/nvim-treesitter"},
-	{"neovim/nvim-lspconfig"},
+--	{"neovim/nvim-lspconfig"},
 	{"hrsh7th/cmp-nvim-lsp"},
 	{"hrsh7th/cmp-nvim-lua"},
 	{"hrsh7th/cmp-buffer"},
@@ -93,39 +93,66 @@ for _, name in ipairs(hl) do
 	vim.api.nvim_set_hl(0, name, {bg = "none"})
 end
 
-local lsp = require("lspconfig")
-local lspcfg = require("lspconfig.configs")
-lsp.clangd.setup({
+vim.lsp.enable("clangd")
+vim.lsp.config("clangd", {
 	cmd = {"clangd", "--header-insertion=never", "--completion-style=detailed", "--clang-tidy"},
 	filetypes = {"c", "cpp"},
-	root_dir = function(filename)
-		return lsp.util.root_pattern("build/compile_commands.json",
-			"compile_flags.txt", "compile_commands.json")(filename)
-				or vim.fn.getcwd()
-	end,
-	settings = {
-		clangd = {
-			fallbackFlags = {"-std=c++20"},
-		}
+	root_markers = {
+		"build/compile_commands.json",
+		"compile_flags.txt",
+		"compile_commands.json"
 	}
 })
 
-lsp.lua_ls.setup({})
-lsp.cmake.setup({})
-lsp.gdscript.setup({})
+vim.lsp.enable("lua_ls")
+vim.lsp.config("lua_ls", {
+	cmd = {"lua-language-server"},
+	filetypes = {"lua"},
+	root_markers = {
+		'.luarc.json',
+		'.luarc.jsonc',
+		'.luacheckrc',
+		'.stylua.toml',
+		'stylua.toml',
+		'selene.toml',
+		'selene.yml',
+		'.git',
+	},
+	single_file_support = true
+})
 
-if not lspcfg.glsl_analyzer then
-	lspcfg.glsl_analyzer = {
-		default_config = {
-			cmd = {"glsl_analyzer", "--stdio"},
-			root_dir = lsp.util.root_pattern('.git'),
-			filetypes = {"glsl"},
-			autostart = true,
-			single_file_support = true
- 		}
-	}
-end
-lsp.glsl_analyzer.setup{}
+vim.lsp.enable("cmake")
+vim.lsp.config("cmake", {
+	cmd = {"cmake-language-server"},
+	filetypes = {"cmake"},
+	root_markers = {
+		'CMakePresets.json',
+		'CTestConfig.cmake',
+		'.git',
+		'build',
+		'cmake',
+	},
+	single_file_support = true,
+	init_options = {
+		buildDirectory = 'build',
+	},
+})
+
+vim.lsp.enable("gdscript")
+vim.lsp.config("gdscript", {
+	cmd = vim.lsp.rpc.connect('127.0.0.1', tonumber(os.getenv 'GDScript_Port' or '6005')),
+	filetypes = {'gd', 'gdscript', 'gdscript3'},
+	root_markers = {"project.godot", ".git"},
+})
+
+vim.lsp.enable("glsl_analyzer")
+vim.lsp.config("glsl_analyzer", {
+	cmd = {"glsl_analyzer", "--stdio"},
+	root_markers = {'.git'},
+	filetypes = {"glsl"},
+	autostart = true,
+	single_file_support = true
+})
 
 local cmp = require("cmp")
 
