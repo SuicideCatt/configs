@@ -28,6 +28,8 @@ setopt auto_cd
 # Config
 CONFIG_DIRECTORY="$(dirname $(readlink -f $HOME/.zshrc))"
 
+EDITOR=nvim
+
 # Theme
 source "$CONFIG_DIRECTORY/minimal.zsh"
 if [ "${$(tty):0:8}" = "/dev/tty" ]
