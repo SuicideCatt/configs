@@ -2,5 +2,8 @@
 method = pipewire
 source = auto
 
+[output]
+reverse = 1
+
 [color]
 foreground = '#BD93F9
