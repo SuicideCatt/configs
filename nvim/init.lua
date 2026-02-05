@@ -59,6 +59,12 @@ require("lazy").setup({
 		opts = {},
 	},
 	{"OXY2DEV/markview.nvim"},
+	{
+		"rcarriga/nvim-dap-ui",
+		dependencies = {
+			"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"
+		}
+	}
 })
 
 require("nvim-tree").setup({
@@ -220,3 +226,30 @@ require('nvim-highlight-colors').setup({
 	enable_named_colors = true,
 	enable_tailwind = true,
 })
+
+local dap = require('dap')
+dap.adapters.lldb = {
+	type = 'executable',
+	command = '/usr/bin/lldb-dap',
+	name = 'lldb'
+}
+
+dap.configurations.cpp = {{
+	name = 'Launch',
+	type = 'lldb',
+	request = 'launch',
+	program = function()
+		return vim.fn.input('Path to executable: ',
+							vim.fn.getcwd() .. '/', 'file')
+	end,
+	cwd = '${workspaceFolder}',
+	stopOnEntry = false,
+	args = {},
+}}
+
+require('dapui').setup()
+
+vim.keymap.set("n", "gdp", "<Cmd>DapToggleBreakpoint<CR>")
+vim.keymap.set("n", "gdb",
+			   "<Cmd>tab new<CR><Cmd>lua require('dapui').open()<CR>")
+vim.keymap.set("n", "gv", "<Cmd>lua require('dapui').eval()<CR>")
