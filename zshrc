@@ -94,7 +94,8 @@ prt_mk_build()
 	zmodload zsh/zutil
 	zparseopts -D -F -E - \
 		cmake:=io_cmake \
-		cmake_gen:=iog_cmake
+		cmake_gen:=iog_cmake \
+		compl:=io_compl
 
 	if [ ! $#io_cmake = 0 ]
 	then
@@ -111,6 +112,22 @@ prt_mk_build()
 				*)
 				;;
 			esac
+		fi
+
+		export CC=/bin/gcc CXX=/bin/g++
+		if [ ! $#io_compl = 0 ]
+		then
+			case "${io_compl[-1]##*=}" in
+				gcc)
+					export CC=/bin/gcc CXX=/bin/g++
+				;;
+				clang)
+					export CC=/bin/clang CXX=/bin/clang++
+				;;
+				*)
+				;;
+			esac
+
 		fi
 
 		case "${io_cmake[-1]##*=}" in
