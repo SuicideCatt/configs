@@ -93,23 +93,39 @@ prt_mk_build()
 
 	zmodload zsh/zutil
 	zparseopts -D -F -E - \
-		cmake:=io_cmake
+		cmake:=io_cmake \
+		cmake_gen:=iog_cmake
 
 	if [ ! $#io_cmake = 0 ]
 	then
+		GEN="Unix Makefiles"
+		if [ ! $#iog_cmake = 0 ]
+		then
+			case "${iog_cmake[-1]##*=}" in
+				make)
+					GEN="Unix Makefiles"
+				;;
+				ninja)
+					GEN="Ninja"
+				;;
+				*)
+				;;
+			esac
+		fi
+
 		case "${io_cmake[-1]##*=}" in
 			d)
 				cmake -S "$(pwd)" -B "$PRT" -DCMAKE_BUILD_TYPE=Debug \
-					-DCMAKE_EXPORT_COMPILE_COMMANDS=YES -G "Unix Makefiles"
+					-DCMAKE_EXPORT_COMPILE_COMMANDS=YES -G "$GEN"
 			;;
 			dt)
 				cmake -S "$(pwd)" -B "$PRT" -DCMAKE_BUILD_TYPE=Debug \
 					-DCMAKE_EXPORT_COMPILE_COMMANDS=YES -DTESTS=ON \
-					-G "Unix Makefiles"
+					-G "$GEN"
 			;;
 			r)
 				cmake -S "$(pwd)" -B "$PRT" -DCMAKE_BUILD_TYPE=Release \
-					-G "Unix Makefiles"
+					-G "$GEN"
 			;;
 			*)
 				echo "d or r"
