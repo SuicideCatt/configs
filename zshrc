@@ -137,12 +137,10 @@ prt_mk_build()
 			;;
 			dt)
 				cmake -S "$(pwd)" -B "$PRT" -DCMAKE_BUILD_TYPE=Debug \
-					-DCMAKE_EXPORT_COMPILE_COMMANDS=YES -DTESTS=ON \
-					-G "$GEN"
+					-DCMAKE_EXPORT_COMPILE_COMMANDS=YES -DTESTS=ON -G "$GEN"
 			;;
 			r)
-				cmake -S "$(pwd)" -B "$PRT" -DCMAKE_BUILD_TYPE=Release \
-					-G "$GEN"
+				cmake -S "$(pwd)" -B "$PRT" -DCMAKE_BUILD_TYPE=Release -G "$GEN"
 			;;
 			*)
 				echo "d or r"
