@@ -124,7 +124,14 @@ vim.lsp.config("lua_ls", {
 		'selene.yml',
 		'.git',
 	},
-	single_file_support = true
+	single_file_support = true,
+	settings = {
+		Lua = {
+			telemetry = {
+				enable = false,
+			}
+		}
+	}
 })
 
 vim.lsp.enable("cmake")
