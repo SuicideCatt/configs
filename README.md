@@ -9,7 +9,7 @@ sudo pacman -Sy zsh-completions \
 	hyprland waybar wofi hyprlock hyprpaper hypridle \
 	xdg-desktop-portal-hyprland wl-clipboard kitty pcmanfm-qt swaync \
 	lua-language-server clang
-yay -S hyprshot hyprpicker glsl_analyzer cmake-language-server
+yay -S hyprshot hyprpicker glsl_analyzer cmake-language-server mpvpaper
 sudo pkgfile -u
 git clone https://github.com/SuicideCatt/configs ~/.config/sct_config
 cd ~/.config/sct_config
