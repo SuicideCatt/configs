@@ -245,7 +245,41 @@ prt_build()
 
 alias find_in_history='cat ~/.zsh_history | grep'
 
-alias cava_on_bg='kitten panel --config $CONFIG_DIRECTORY/kitty/cava.conf --edge=background --output-name=Cava cava'
+livebg()
+{
+	pkill cava
+
+	zmodload zsh/zutil
+	zparseopts -D -F -E - \
+		display:=io_display \
+		cava=io_cava
+
+	if [ ! $#io_display = 0 ]
+	then
+		WORK_MONITOR="${io_display[-1]##*=}"
+		hyprctl monitors | grep "$WORK_MONITOR" > /dev/null
+		if [ "$?" -ne 0 ]
+		then
+			send_hyprnotify 3 "No display: $WORK_MONITOR!"
+			WORK_MONITOR="$MAIN_MONITOR"
+		fi
+
+	else
+		WORK_MONITOR="$MAIN_MONITOR"
+	fi
+
+	if [ ! $#io_cava = 0 ]
+	then
+		OLD_MON_ID="${$(hyprctl activeworkspace | grep "monitorID")##*: }"
+
+		hyprctl dispatch focusmonitor "$WORK_MONITOR" > /dev/null
+		sleep 0.1
+		kitten panel --config "$CONFIG_DIRECTORY/kitty/cava.conf" --edge=background \
+					 --output-name=Cava cava &
+		sleep 0.5
+		hyprctl dispatch focusmonitor "$OLD_MON_ID" > /dev/null
+	fi
+}
 
 alias l='ls -lah'
 alias la='ls -lAh'
