@@ -58,7 +58,38 @@ alias zsh_cfg_edit="nvim $ZSH_CONFIG"
 
 send_hyprnotify()
 {
-	hyprctl notify "$1" 5000 0 "$2" > /dev/null
+	case "$1" in
+		0)
+		COLOR=33
+		;;
+		1)
+		COLOR=36
+		;;
+		2)
+		COLOR=2
+		;;
+		3)
+		COLOR=31
+		;;
+		4)
+		COLOR=35
+		;;
+		5)
+		COLOR=32
+		;;
+		*)
+		COLOR=39
+		;;
+	esac
+	COLOR="\\x1b[$(echo $COLOR)m"
+	CLEAR="\\x1b[0m"
+
+	printf "$COLOR$2$CLEAR\n"
+
+	if [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ]
+	then
+		hyprctl notify "$1" 5000 0 "$2" > /dev/null
+	fi
 }
 
 # Other
@@ -149,14 +180,11 @@ prt_mk_build()
 		esac
 
 		BR=$?
-		if [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ]
+		if [ "$BR" -ne 0 ]
 		then
-			if [ "$BR" -ne 0 ]
-			then
-				send_hyprnotify 3 "Cache generation fail!"
-			else
-				send_hyprnotify 5 "Cache generation complete!"
-			fi
+			send_hyprnotify 3 "Cache generation fail!"
+		else
+			send_hyprnotify 5 "Cache generation complete!"
 		fi
 
 		return "$BR"
@@ -205,14 +233,11 @@ prt_build()
 	fi
 
 	BR=$?
-	if [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ]
+	if [ "$BR" -ne 0 ]
 	then
-		if [ "$BR" -ne 0 ]
-		then
-			send_hyprnotify 3 "Build failed!" > /dev/null
-		else
-			send_hyprnotify 5 "Build complete!" > /dev/null
-		fi
+		send_hyprnotify 3 "Build failed!"
+	else
+		send_hyprnotify 5 "Build complete!"
 	fi
 
 	return "$BR"
