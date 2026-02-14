@@ -80,10 +80,12 @@ llinking "Hack Nerd Font"
 link_dir fonts/Hack "$FONTS/Hack"
 
 linstaling "Wallpapers"
-link_file_ret "wallpapers/morian_224_013.png" \
-		"$WALLPAPERS/morian_224_013.png" && \
-	link_dir_ret "wallpapers/Next" "$WALLPAPERS/Next" && ldone \
-	|| lskip
+mkdir -p "$WALLPAPERS/live"
+(link_file_ret "wallpapers/morian_224_013.png" "$WALLPAPERS/morian_224_013.png" || \
+ link_dir_ret "wallpapers/Next" "$WALLPAPERS/Next" || \
+ link_file_ret "wallpapers/live/Marisa.mp4" "$WALLPAPERS/live/Marisa.mp4" || \
+ link_file_ret "wallpapers/live/Suika.mp4" "$WALLPAPERS/live/Suika.mp4") && \
+	ldone || lskip
 
 llinking "Cava config"
 link_dir cava "$UCONFIG/cava"

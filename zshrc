@@ -247,10 +247,12 @@ alias find_in_history='cat ~/.zsh_history | grep'
 
 livebg()
 {
+	pkill mpvpaper
 	pkill cava
 
 	zmodload zsh/zutil
 	zparseopts -D -F -E - \
+		paper:=io_paper \
 		display:=io_display \
 		cava=io_cava
 
@@ -266,6 +268,19 @@ livebg()
 
 	else
 		WORK_MONITOR="$MAIN_MONITOR"
+	fi
+
+	if [ ! $#io_paper = 0 ]
+	then
+		NAME="${io_paper[-1]##*=}.mp4"
+		FILE="wallpapers/live/$NAME"
+
+		if [ ! -f "$CONFIG_DIRECTORY/$FILE" ]
+		then
+			send_hyprnotify 3 "No wallpaper file: $NAME!"
+		else
+			mpvpaper "$WORK_MONITOR" "$HOME/.local/share/$FILE" -o "loop no-audio" &
+		fi
 	fi
 
 	if [ ! $#io_cava = 0 ]

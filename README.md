@@ -25,6 +25,9 @@ sct_cfg_update
 Wallpapers
 - [Next](https://invent.kde.org/plasma/breeze/tree/Plasma/6.1/wallpapers/Next)
 - morian\_224\_013.png - IDK, Hakurei Reimu from TouHou Project
+- Live:
+	- [Marisa](https://youtu.be/4KWTyoMtVL8)
+	- [Suika](https://youtu.be/EpDRtDGQfdQ)
 
 Cursor
 - [cz-Hickson-Black](https://github.com/charakterziffer/cursor-toolbox)
