@@ -64,7 +64,8 @@ require("lazy").setup({
 		dependencies = {
 			"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"
 		}
-	}
+	},
+	{ "hedyhli/outline.nvim" }
 })
 
 require("nvim-tree").setup({
@@ -260,3 +261,13 @@ vim.keymap.set("n", "gdp", "<Cmd>DapToggleBreakpoint<CR>")
 vim.keymap.set("n", "gdb",
 			   "<Cmd>tab new<CR><Cmd>lua require('dapui').open()<CR>")
 vim.keymap.set("n", "gv", "<Cmd>lua require('dapui').eval()<CR>")
+
+require("outline").setup({
+	outline_window = {
+		position = 'left',
+		split_command = 'rightbelow split',
+		winhl = 'Normal:NvimTreeNormal',
+	},
+})
+
+vim.keymap.set("n", "<C-o>", "<Cmd>OutlineOpen<CR>")
