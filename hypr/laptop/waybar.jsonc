@@ -19,6 +19,7 @@
         //"idle_inhibitor",
         "pulseaudio",
         "backlight",
+		"bluetooth",
         "cpu",
 		"power-profiles-daemon",
         "memory",
@@ -75,6 +76,13 @@
 				"name": "cava"
 			}
 		]
+	},
+	"bluetooth": {
+		"format": "[BZ {status}]",
+		"format-disabled": "", // an empty format will hide the module
+		"format-connected": "[BZ {num_connections}]",
+		"tooltip-format-connected": "{device_enumerate}",
+		"tooltip-format-enumerate-connected": "{device_alias}\t{device_battery_percentage}%"
 	},
 	"hyprland/language": {
 		"format": "[{short}]"
