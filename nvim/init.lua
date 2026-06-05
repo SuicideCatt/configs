@@ -36,8 +36,8 @@ require("lazy").setup({
 		dependencies = {'nvim-tree/nvim-web-devicons'}
 	},
 	{"nvim-tree/nvim-tree.lua"},
-	{"tree-sitter/tree-sitter"},
-	{"nvim-treesitter/nvim-treesitter"},
+--	{"tree-sitter/tree-sitter"},
+--	{"nvim-treesitter/nvim-treesitter"},
 --	{"neovim/nvim-lspconfig"},
 	{"hrsh7th/cmp-nvim-lsp"},
 	{"hrsh7th/cmp-nvim-lua"},
@@ -58,7 +58,7 @@ require("lazy").setup({
 		main = "ibl",
 		opts = {},
 	},
-	{"OXY2DEV/markview.nvim"},
+--	{"OXY2DEV/markview.nvim"},
 	{
 		"rcarriga/nvim-dap-ui",
 		dependencies = {
@@ -76,18 +76,18 @@ require("nvim-tree").setup({
 })
 require("ibl").setup()
 
-require("nvim-treesitter.configs").setup({
-	ensure_installed = {
-		"c", "cpp", "lua", "cmake", "make", "bash",
-		"markdown", "markdown_inline", "glsl"
-	},
-	sync_install = true,
-	auto_install = false,
-
-	highlight = {
-		enable = true
-	}
-})
+-- require("nvim-treesitter.configs").setup({
+-- 	ensure_installed = {
+-- 		"c", "cpp", "lua", "cmake", "make", "bash",
+-- 		"markdown", "markdown_inline", "glsl"
+-- 	},
+-- 	sync_install = true,
+-- 	auto_install = false,
+--
+-- 	highlight = {
+-- 		enable = false
+-- 	}
+-- })
 
 vim.cmd.colorscheme("catppuccin-mocha")
 local hl = {
