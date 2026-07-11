@@ -102,7 +102,11 @@ end
 
 vim.lsp.enable("clangd")
 vim.lsp.config("clangd", {
-	cmd = {"clangd", "--header-insertion=never", "--completion-style=detailed", "--clang-tidy"},
+	cmd = {
+		"clangd",
+		"--header-insertion=never", "--completion-style=detailed",
+		"--clang-tidy"
+	},
 	filetypes = {"c", "cpp"},
 	root_markers = {
 		"build/compile_commands.json",
