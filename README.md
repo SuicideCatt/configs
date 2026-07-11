@@ -9,13 +9,14 @@ sudo pacman -Sy zsh-completions \
 	hyprland waybar hyprlock hyprpaper hypridle hyprlauncher \
 	xdg-desktop-portal-hyprland wl-clipboard kitty pcmanfm-qt swaync \
 	lua-language-server clang
-yay -S hyprshot hyprpicker glsl_analyzer cmake-language-server mpvpaper
+yay -S hyprshot hyprpicker glsl_analyzer mpvpaper
 sudo pkgfile -u
 git clone https://github.com/SuicideCatt/configs ~/.config/sct_config
 cd ~/.config/sct_config
 ./first_install.sh
 chsh -s /usr/bin/zsh
 ```
+Install [``neocmakelsp``](https://github.com/neocmakelsp/neocmakelsp) for cmake
 
 For upgrade:
 ```sh

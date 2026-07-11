@@ -135,9 +135,9 @@ vim.lsp.config("lua_ls", {
 	}
 })
 
-vim.lsp.enable("cmake")
-vim.lsp.config("cmake", {
-	cmd = {"cmake-language-server"},
+vim.lsp.enable("neocmake")
+vim.lsp.config("neocmake", {
+	cmd = {"neocmakelsp", "stdio"},
 	filetypes = {"cmake"},
 	root_markers = {
 		'CMakePresets.json',
