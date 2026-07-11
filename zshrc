@@ -298,9 +298,7 @@ livebg()
 
 osu()
 {
-	echo "\$OSU = YES" > $CONFIG_DIRECTORY/hypr/tablet.conf && hyprctl reload > /dev/null
 	env SDL_VIDEODRIVER=wayland osu-lazer
-	echo "\$OSU = no" > $CONFIG_DIRECTORY/hypr/tablet.conf && hyprctl reload > /dev/null
 }
 
 alias l='ls -lah'

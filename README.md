@@ -6,7 +6,7 @@ sudo pacman -Sy zsh-completions \
 	zsh-autosuggestions zsh-syntax-highlighting pkgfile \
 	git zsh neovim python-gobject python-pynvim \
 	qt5ct qt6ct glib2 \
-	hyprland waybar wofi hyprlock hyprpaper hypridle \
+	hyprland waybar hyprlock hyprpaper hypridle hyprlauncher \
 	xdg-desktop-portal-hyprland wl-clipboard kitty pcmanfm-qt swaync \
 	lua-language-server clang
 yay -S hyprshot hyprpicker glsl_analyzer cmake-language-server mpvpaper
