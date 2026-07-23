@@ -150,10 +150,10 @@ prt_mk_build()
 		then
 			case "${io_compl[-1]##*=}" in
 				gcc)
-					export CC=/bin/gcc CXX=/bin/g++
+					export CC=/usr/bin/gcc CXX=/usr/bin/g++
 				;;
 				clang)
-					export CC=/bin/clang CXX=/bin/clang++
+					export CC=/usr/bin/clang CXX=/usr/bin/clang++
 				;;
 				*)
 				;;
