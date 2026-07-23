@@ -5,6 +5,7 @@ hl.monitor({
 	mode = "1920x1080@60",
 	position = "1080x523",
 	scale = 1,
+	bitdepth = 10,
 })
 
 hl.monitor({
@@ -12,6 +13,7 @@ hl.monitor({
 	mode = "1920x1080@60",
 	position = "3000x523",
 	scale = 1,
+	bitdepth = 10,
 })
 
 hl.monitor({
@@ -20,6 +22,7 @@ hl.monitor({
 	position = "0x0",
 	scale = 1,
 	transform = 1,
+	bitdepth = 10,
 })
 
 hl.workspace_rule({
