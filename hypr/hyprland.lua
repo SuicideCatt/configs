@@ -236,7 +236,7 @@ hl.bind(main_mod.." + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 require("selected.binds")
 
-hl.bind(main_mod.." + P", hl.dsp.exec_cmd("systemctl suspend"))
+hl.bind(main_mod.." + P", hl.dsp.exec_cmd("systemctl suspend"), { locked = true })
 
 hl.bind(
 	"CTRL + SHIFT + E",
