@@ -234,6 +234,22 @@ hl.bind(main_mod.." + SHIFT + T", hl.dsp.window.move({workspace = "special:chats
 hl.bind(main_mod.." + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(main_mod.." + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
+hl.bind(
+	"XF86AudioMute",
+	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SINK@ toggle"),
+	{ locked = true }
+)
+hl.bind(
+	"XF86AudioLowerVolume",
+	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_SINK@ 5%-"),
+	{ locked = true }
+)
+hl.bind(
+	"XF86AudioRaiseVolume",
+	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_SINK@ 5%+"),
+	{ locked = true }
+)
+
 require("selected.binds")
 
 hl.bind(main_mod.." + P", hl.dsp.exec_cmd("systemctl suspend"), { locked = true })
