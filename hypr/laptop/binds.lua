@@ -9,8 +9,8 @@ hl.bind(
 )
 
 hl.bind("Help", player("play-pause"), { locked = true })
-hl.bind("XF86PickupPhone", player("next"), { locked = true })
-hl.bind("XF86HangupPhone", player("previous"), { locked = true })
+hl.bind("XF86HangupPhone", player("next"), { locked = true })
+hl.bind("XF86PickupPhone", player("previous"), { locked = true })
 hl.bind("XF86Calculator", player("stop"), { locked = true })
 
 local function set_brightness(s)
@@ -19,4 +19,4 @@ local function set_brightness(s)
 end
 
 hl.bind("XF86MonBrightnessUp", set_brightness("+"), { locked = true })
-hl.bind("XF86Calculator", set_brightness("-"), { locked = true })
+hl.bind("XF86MonBrightnessDown", set_brightness("-"), { locked = true })
