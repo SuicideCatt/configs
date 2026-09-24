@@ -56,9 +56,6 @@ link_dir pcmanfm-qt "$UCONFIG/pcmanfm-qt"
 llinking "Kitty config"
 link_dir kitty "$UCONFIG/kitty"
 
-llinking "XDG-Mime config"
-link_file mimeapps.list "$UCONFIG/mimeapps.list"
-
 llinking "GTK theme"
 link_dir theme/oomox-sct_krita_darker "$THEMES/oomox-sct_krita_darker"
 
