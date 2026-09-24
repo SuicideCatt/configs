@@ -14,7 +14,7 @@ hl.bind("XF86PickupPhone", player("previous"), { locked = true })
 hl.bind("XF86Calculator", player("stop"), { locked = true })
 
 local function set_brightness(s)
-	local gpu = "amdgpu_bl0"
+	local gpu = "amdgpu_bl1"
 	return hl.dsp.exec_cmd("brightnessctl -d "..gpu.." set 5%"..s)
 end
 
