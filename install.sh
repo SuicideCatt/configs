@@ -90,5 +90,7 @@ mkdir -p "$WALLPAPERS/live"
 llinking "Cava config"
 link_dir cava "$UCONFIG/cava"
 
+llinking "superfile config"
+link_dir superfile "$UCONFIG/superfile"
 
 fc-cache -f -v
