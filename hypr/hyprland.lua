@@ -42,8 +42,9 @@ hl.config({
 			border_inactive = "rgba(72634caa)",
 		},
 		groupbar = {
-			font_size = 0,
-			height = -8,
+			height = 1,
+			keep_upper_gap = false,
+			render_titles = false,
 			indicator_height = 4,
 			col = {
 				active = "rgba(edbeabff)",
